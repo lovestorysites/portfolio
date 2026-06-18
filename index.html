@@ -1,0 +1,1865 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LoveStorySites ♛ — هدية رقمية ما تتنساش</title>
+    <meta name="description" content="نخدمولك موقع إلكتروني شخصي — هدية رقمية ما تتنساش. لعيد الميلاد، الذكرى، أو بلا سبب. خدمة جزائرية مخصصة للأزواج.">
+    <meta name="keywords" content="هدية رقمية, موقع شخصي, عيد ميلاد, حب, جزائر, LoveStorySites">
+    <meta property="og:title" content="LoveStorySites ♛ — هدية رقمية ما تتنساش">
+    <meta property="og:description" content="نخدمولك موقع إلكتروني شخصي — هدية رقمية ما تتنساش">
+    <meta property="og:type" content="website">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+
+    <!-- AOS Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        /* ========== RESET & BASE ========== */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #0A0A0A;
+            --gold: #C9A84C;
+            --gold-light: #e0c672;
+            --gold-dark: #a08030;
+            --white: #F5F5F5;
+            --card-bg: #141414;
+            --card-bg-hover: #1a1a1a;
+            --font-title: 'Cormorant Garamond', serif;
+            --font-body: 'Cairo', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--white);
+            font-family: var(--font-body);
+            direction: rtl;
+            text-align: center;
+            overflow-x: hidden;
+            line-height: 1.8;
+        }
+
+        /* ========== PARTICLE CANVAS ========== */
+        #particles-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* ========== GLOBAL ========== */
+        section {
+            position: relative;
+            z-index: 1;
+            padding: 100px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            font-family: var(--font-title);
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            color: var(--gold);
+            margin-bottom: 60px;
+            font-weight: 600;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            margin: 15px auto 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* ========== HERO SECTION ========== */
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 40px 20px;
+        }
+
+        .hero-crown {
+            font-size: 3rem;
+            color: var(--gold);
+            margin-bottom: 20px;
+            animation: floatCrown 3s ease-in-out infinite;
+            filter: drop-shadow(0 0 20px rgba(201, 168, 76, 0.4));
+        }
+
+        @keyframes floatCrown {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .hero-title {
+            font-family: var(--font-title);
+            font-size: clamp(2.5rem, 7vw, 5rem);
+            color: var(--gold);
+            font-weight: 700;
+            letter-spacing: 3px;
+            margin-bottom: 30px;
+            text-shadow: 0 0 40px rgba(201, 168, 76, 0.3);
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1rem, 3vw, 1.4rem);
+            color: var(--gold-light);
+            margin-bottom: 25px;
+            min-height: 2.5em;
+            font-weight: 300;
+        }
+
+        .hero-subtitle .cursor {
+            display: inline-block;
+            width: 2px;
+            height: 1.2em;
+            background: var(--gold);
+            margin-right: 5px;
+            animation: blink 1s step-end infinite;
+            vertical-align: middle;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        .hero-desc {
+            font-size: clamp(0.95rem, 2.5vw, 1.15rem);
+            color: rgba(245, 245, 245, 0.7);
+            line-height: 2;
+            margin-bottom: 45px;
+            max-width: 500px;
+        }
+
+        .hero-desc span {
+            display: block;
+        }
+
+        .btn-gold {
+            display: inline-block;
+            padding: 16px 40px;
+            background: transparent;
+            border: 2px solid var(--gold);
+            color: var(--gold);
+            font-family: var(--font-body);
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            overflow: hidden;
+            animation: pulseBtn 2.5s ease-in-out infinite;
+        }
+
+        .btn-gold::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(201, 168, 76, 0.15), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .btn-gold:hover::before {
+            left: 100%;
+        }
+
+        .btn-gold:hover {
+            background: var(--gold);
+            color: var(--bg);
+            box-shadow: 0 0 30px rgba(201, 168, 76, 0.4), 0 0 60px rgba(201, 168, 76, 0.2);
+            transform: translateY(-2px);
+        }
+
+        @keyframes pulseBtn {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(201, 168, 76, 0.3); }
+            50% { box-shadow: 0 0 20px 5px rgba(201, 168, 76, 0.15); }
+        }
+
+        /* ========== SERVICES SECTION ========== */
+        #services {
+            padding-top: 80px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .service-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(201, 168, 76, 0.2);
+            border-radius: 16px;
+            padding: 40px 25px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .service-card:hover {
+            border-color: rgba(201, 168, 76, 0.5);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(201, 168, 76, 0.1);
+            background: var(--card-bg-hover);
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .service-card h3 {
+            font-family: var(--font-body);
+            font-size: 1.15rem;
+            color: var(--gold);
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .service-card p {
+            font-size: 0.95rem;
+            color: rgba(245, 245, 245, 0.65);
+            line-height: 1.8;
+        }
+
+        /* Special full-width card */
+        .service-card-special {
+            background: var(--card-bg);
+            border: 1px solid rgba(201, 168, 76, 0.35);
+            border-radius: 16px;
+            padding: 45px 35px;
+            margin-bottom: 25px;
+            position: relative;
+            overflow: hidden;
+            animation: shimmerBorder 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmerBorder {
+            0%, 100% { 
+                border-color: rgba(201, 168, 76, 0.35);
+                box-shadow: 0 0 15px rgba(201, 168, 76, 0.05);
+            }
+            50% { 
+                border-color: rgba(201, 168, 76, 0.6);
+                box-shadow: 0 0 30px rgba(201, 168, 76, 0.15), inset 0 0 30px rgba(201, 168, 76, 0.03);
+            }
+        }
+
+        .service-card-special::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent 40%,
+                rgba(201, 168, 76, 0.03) 45%,
+                rgba(201, 168, 76, 0.05) 50%,
+                rgba(201, 168, 76, 0.03) 55%,
+                transparent 60%
+            );
+            animation: shimmerEffect 4s linear infinite;
+        }
+
+        @keyframes shimmerEffect {
+            0% { transform: translateX(-50%) translateY(-50%) rotate(0deg); }
+            100% { transform: translateX(50%) translateY(50%) rotate(0deg); }
+        }
+
+        .service-card-special .service-icon {
+            font-size: 2.8rem;
+        }
+
+        .service-card-special h3 {
+            font-family: var(--font-body);
+            font-size: 1.3rem;
+            color: var(--gold);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .service-card-special p {
+            font-size: 1.05rem;
+            color: rgba(245, 245, 245, 0.7);
+            line-height: 2;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .creativity-quote {
+            font-family: var(--font-title);
+            font-style: italic;
+            color: var(--gold);
+            font-size: 1.1rem;
+            opacity: 0.8;
+            margin-top: 10px;
+        }
+
+        /* ========== PORTFOLIO SECTION ========== */
+        #portfolio {
+            padding-top: 80px;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .portfolio-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(201, 168, 76, 0.15);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: var(--gold);
+            box-shadow: 0 15px 50px rgba(201, 168, 76, 0.2), 0 0 0 1px rgba(201, 168, 76, 0.3);
+        }
+
+        .portfolio-img-wrapper {
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .portfolio-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .portfolio-card:hover .portfolio-img-wrapper img {
+            transform: scale(1.08);
+        }
+
+        .portfolio-img-wrapper::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: linear-gradient(to top, var(--card-bg), transparent);
+        }
+
+        .portfolio-info {
+            padding: 25px;
+        }
+
+        .portfolio-label {
+            display: inline-block;
+            font-size: 0.9rem;
+            color: var(--gold);
+            font-weight: 600;
+            margin-bottom: 18px;
+            padding: 5px 15px;
+            border: 1px solid rgba(201, 168, 76, 0.3);
+            border-radius: 20px;
+            background: rgba(201, 168, 76, 0.08);
+        }
+
+        .btn-portfolio {
+            display: inline-block;
+            padding: 12px 30px;
+            background: transparent;
+            border: 1.5px solid var(--gold);
+            color: var(--gold);
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-portfolio:hover {
+            background: var(--gold);
+            color: var(--bg);
+            box-shadow: 0 0 20px rgba(201, 168, 76, 0.3);
+        }
+
+        /* ========== STEPS SECTION ========== */
+        #steps {
+            padding-top: 80px;
+            padding-bottom: 100px;
+        }
+
+        .steps-container {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 0;
+            position: relative;
+            margin-bottom: 60px;
+            flex-wrap: nowrap;
+        }
+
+        .step-item {
+            flex: 1;
+            max-width: 220px;
+            text-align: center;
+            position: relative;
+            padding: 0 10px;
+        }
+
+        .step-number {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            border: 2px solid var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-family: var(--font-title);
+            font-size: 1.4rem;
+            color: var(--gold);
+            font-weight: 700;
+            background: var(--bg);
+            position: relative;
+            z-index: 2;
+            transition: all 0.4s ease;
+        }
+
+        .step-item:hover .step-number {
+            background: var(--gold);
+            color: var(--bg);
+            box-shadow: 0 0 25px rgba(201, 168, 76, 0.4);
+        }
+
+        .step-item h4 {
+            font-size: 1.05rem;
+            color: var(--gold);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .step-item p {
+            font-size: 0.85rem;
+            color: rgba(245, 245, 245, 0.6);
+            line-height: 1.7;
+        }
+
+        /* Connecting line */
+        .steps-line {
+            position: absolute;
+            top: 27px;
+            left: 15%;
+            right: 15%;
+            height: 2px;
+            background: rgba(201, 168, 76, 0.15);
+            z-index: 1;
+        }
+
+        .steps-line-fill {
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 100%;
+            width: 0;
+            background: linear-gradient(90deg, var(--gold), var(--gold-light));
+            transition: width 1.5s ease;
+            box-shadow: 0 0 10px rgba(201, 168, 76, 0.3);
+        }
+
+        .steps-line-fill.animate {
+            width: 100%;
+        }
+
+        .steps-cta {
+            margin-top: 20px;
+        }
+
+        .btn-gold-glow {
+            display: inline-block;
+            padding: 18px 45px;
+            background: linear-gradient(135deg, var(--gold-dark), var(--gold), var(--gold-light));
+            color: var(--bg);
+            font-family: var(--font-body);
+            font-size: 1.15rem;
+            font-weight: 700;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            box-shadow: 0 0 20px rgba(201, 168, 76, 0.3);
+            animation: glowBtn 2s ease-in-out infinite;
+        }
+
+        @keyframes glowBtn {
+            0%, 100% { box-shadow: 0 0 20px rgba(201, 168, 76, 0.3); }
+            50% { box-shadow: 0 0 35px rgba(201, 168, 76, 0.5), 0 0 60px rgba(201, 168, 76, 0.2); }
+        }
+
+        .btn-gold-glow:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 0 40px rgba(201, 168, 76, 0.5);
+        }
+
+        /* ========== FOOTER ========== */
+        #footer {
+            background: var(--card-bg);
+            padding: 60px 20px;
+            border-top: 1px solid rgba(201, 168, 76, 0.1);
+        }
+
+        .footer-brand {
+            font-family: var(--font-title);
+            font-size: 1.8rem;
+            color: var(--gold);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .footer-tagline {
+            font-size: 0.95rem;
+            color: rgba(245, 245, 245, 0.5);
+            margin-bottom: 30px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 1.5px solid rgba(201, 168, 76, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            color: var(--gold);
+        }
+
+        .social-link:hover {
+            background: var(--gold);
+            border-color: var(--gold);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(201, 168, 76, 0.3);
+        }
+
+        .social-link:hover svg {
+            fill: var(--bg);
+        }
+
+        .social-link svg {
+            width: 22px;
+            height: 22px;
+            fill: var(--gold);
+            transition: fill 0.3s ease;
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 900px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .steps-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 35px;
+            }
+
+            .step-item {
+                max-width: 100%;
+                width: 100%;
+            }
+
+            .steps-line {
+                display: none;
+            }
+
+            section {
+                padding: 70px 15px;
+            }
+
+            .hero-title {
+                letter-spacing: 1px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero-crown {
+                font-size: 2.2rem;
+            }
+
+            .service-card {
+                padding: 30px 20px;
+            }
+
+            .service-card-special {
+                padding: 30px 20px;
+            }
+
+            .btn-gold {
+                padding: 14px 30px;
+                font-size: 1rem;
+            }
+
+            .btn-gold-glow {
+                padding: 15px 35px;
+                font-size: 1rem;
+            }
+
+            .step-number {
+                width: 45px;
+                height: 45px;
+                font-size: 1.2rem;
+            }
+        }
+
+        /* ========== SCROLL REVEAL CUSTOM ========== */
+        [data-aos] {
+            transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+        }
+
+        /* ========== CUSTOM SCROLLBAR ========== */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: rgba(201, 168, 76, 0.3);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(201, 168, 76, 0.5);
+        }
+
+        /* ========== SELECTION ========== */
+        ::selection {
+            background: rgba(201, 168, 76, 0.3);
+            color: var(--white);
+        }
+
+        /* ========== LOADING ANIMATION ========== */
+        .page-loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.6s ease, visibility 0.6s ease;
+        }
+
+        .page-loader.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .loader-crown {
+            font-size: 3rem;
+            color: var(--gold);
+            animation: loaderPulse 1.2s ease-in-out infinite;
+        }
+
+        @keyframes loaderPulse {
+            0%, 100% { transform: scale(1); opacity: 0.7; }
+            50% { transform: scale(1.15); opacity: 1; }
+        }
+
+        /* ========== MODAL & FORM ========== */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 10, 10, 0.95);
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+
+        .modal-container {
+            width: 100%;
+            max-width: 600px;
+            height: 100vh;
+            max-height: 800px;
+            background: var(--bg);
+            border: 1px solid rgba(201, 168, 76, 0.2);
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            transform: translateY(20px);
+            transition: all 0.4s ease;
+            overflow: hidden;
+        }
+
+        @media (max-width: 600px) {
+            .modal-container {
+                height: 100vh;
+                max-height: 100vh;
+                border-radius: 0;
+                border: none;
+            }
+        }
+
+        .modal-overlay.active .modal-container {
+            transform: translateY(0);
+        }
+
+        .modal-header {
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(201, 168, 76, 0.1);
+        }
+
+        .modal-close {
+            background: transparent;
+            border: none;
+            color: var(--gold);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+            padding: 5px;
+        }
+
+        .modal-close:hover, .modal-back:hover {
+            opacity: 0.7;
+        }
+
+        .modal-back {
+            background: transparent;
+            border: none;
+            color: var(--gold);
+            font-size: 2.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+            padding: 5px;
+            visibility: hidden;
+        }
+
+        .modal-back.active {
+            visibility: visible;
+        }
+
+        .progress-bar-container {
+            width: 100%;
+            height: 4px;
+            background: rgba(201, 168, 76, 0.1);
+            position: relative;
+        }
+
+        .progress-bar {
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 100%;
+            background: var(--gold);
+            width: 10%;
+            transition: width 0.4s ease;
+        }
+
+        .modal-body {
+            flex: 1;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .form-step {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateX(50px);
+            transition: all 0.4s ease;
+            overflow-y: auto;
+        }
+
+        .form-step.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(0);
+        }
+
+        .form-step.prev {
+            transform: translateX(-50px);
+        }
+
+        .step-title {
+            font-family: var(--font-title);
+            font-size: 2rem;
+            color: var(--gold);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .input-group {
+            margin-bottom: 25px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 10px;
+            color: var(--white);
+            font-weight: 600;
+        }
+
+        .input-group input[type="text"],
+        .input-group input[type="tel"],
+        .input-group textarea {
+            width: 100%;
+            padding: 15px;
+            background: var(--card-bg);
+            border: 1px solid rgba(201, 168, 76, 0.3);
+            border-radius: 10px;
+            color: var(--white);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .input-group input:focus,
+        .input-group textarea:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 10px rgba(201, 168, 76, 0.2);
+        }
+
+        .input-row {
+            display: flex;
+            gap: 15px;
+        }
+
+        .input-row .input-group {
+            flex: 1;
+        }
+
+        .radio-cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .radio-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(201, 168, 76, 0.2);
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .radio-card.selected {
+            border-color: var(--gold);
+            background: rgba(201, 168, 76, 0.1);
+        }
+
+        .radio-card input {
+            display: none;
+        }
+
+        .tag-presets {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .tag {
+            padding: 5px 15px;
+            background: var(--card-bg);
+            border: 1px solid rgba(201, 168, 76, 0.3);
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .tag:hover {
+            background: rgba(201, 168, 76, 0.1);
+            border-color: var(--gold);
+        }
+
+        .big-btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .big-btn {
+            padding: 20px;
+            background: transparent;
+            border: 2px solid var(--gold);
+            color: var(--gold);
+            border-radius: 15px;
+            font-size: 1.2rem;
+            font-family: var(--font-body);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .big-btn:hover {
+            background: var(--gold);
+            color: var(--bg);
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .checkbox-group input {
+            accent-color: var(--gold);
+            width: 20px;
+            height: 20px;
+        }
+
+        .modal-footer {
+            padding: 20px;
+            border-top: 1px solid rgba(201, 168, 76, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .btn-next, .btn-submit {
+            padding: 12px 30px;
+            background: var(--gold);
+            color: var(--bg);
+            border: none;
+            border-radius: 30px;
+            font-family: var(--font-body);
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-right: auto; /* Push to left in RTL */
+        }
+
+        .btn-next:hover, .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(201, 168, 76, 0.3);
+        }
+
+        .btn-skip {
+            padding: 12px 30px;
+            background: var(--gold);
+            color: var(--bg);
+            border: none;
+            border-radius: 30px;
+            font-family: var(--font-body);
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-skip:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(201, 168, 76, 0.3);
+        }
+
+        .note {
+            font-size: 0.85rem;
+            color: rgba(245, 245, 245, 0.5);
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        /* Toast */
+        .toast {
+            position: absolute;
+            bottom: 80px;
+            left: 50%;
+            transform: translateX(-50%) translateY(20px);
+            background: var(--gold);
+            color: var(--bg);
+            padding: 15px 25px;
+            border-radius: 10px;
+            font-weight: 600;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            text-align: center;
+            width: 90%;
+            z-index: 100;
+        }
+
+        .toast.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+        
+        .success-message {
+            text-align: center;
+            padding: 40px 20px;
+        }
+        
+        .success-message h3 {
+            color: var(--gold);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Page Loader -->
+    <div class="page-loader" id="pageLoader">
+        <div class="loader-crown">♛</div>
+    </div>
+
+    <!-- Particle Canvas Background -->
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- ==================== HERO ==================== -->
+    <section id="hero">
+        <div class="hero-crown" data-aos="fade-down" data-aos-duration="1000">♛</div>
+        <h1 class="hero-title" data-aos="fade-down" data-aos-duration="1200" data-aos-delay="200">LoveStorySites</h1>
+        <div class="hero-subtitle" id="typewriter-container">
+            <span id="typewriter-text"></span><span class="cursor"></span>
+        </div>
+        <div class="hero-desc" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="800">
+            <span>نخدمولك موقع إلكتروني شخصي —</span>
+            <span>هدية رقمية ما تتنساش</span>
+            <span>لعيد الميلاد، الذكرى، أو بلا سبب</span>
+        </div>
+        <a href="#portfolio" class="btn-gold" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1200">
+            شوف الأعمال تاعنا ↓
+        </a>
+    </section>
+
+    <!-- ==================== SERVICES ==================== -->
+    <section id="services">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">وش ندير ؟</h2>
+
+            <div class="services-grid">
+                <div class="service-card" data-aos="fade-up" data-aos-delay="0" data-aos-duration="800">
+                    <span class="service-icon">🎂</span>
+                    <h3>مواقع عيد الميلاد</h3>
+                    <p>موقع كامل مخصص لشخص تحبو</p>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="150" data-aos-duration="800">
+                    <span class="service-icon">💌</span>
+                    <h3>رسايل الحب</h3>
+                    <p>اعترف بمشاعرك بطريقة ما توقعهاش</p>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="300" data-aos-duration="800">
+                    <span class="service-icon">💍</span>
+                    <h3>طلبات الخروج في date</h3>
+                    <p>اطلب بطريقة أصلية وما تنساش</p>
+                </div>
+            </div>
+
+            <div class="service-card-special" data-aos="fade-up" data-aos-delay="450" data-aos-duration="1000">
+                <span class="service-icon">🎬</span>
+                <h3>أفكار خاصة بيك</h3>
+                <p>ما عندناش قيود — إذا عندك فكرة في بالك، مهما كانت، نجسدوها معاك. موقع، رسالة، مفاجأة، أي حاجة تحب تعبر بيها — انت تتخيل وانا نخدم.</p>
+            </div>
+
+            <p class="creativity-quote" data-aos="fade-up" data-aos-delay="600">"الإبداع ما عندوش حدود 🤍"</p>
+        </div>
+    </section>
+
+    <!-- ==================== PORTFOLIO ==================== -->
+    <section id="portfolio">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">الأعمال تاعنا</h2>
+
+            <div class="portfolio-grid">
+                <!-- Card 1 — Birthday -->
+                <div class="portfolio-card" data-aos="zoom-in-up" data-aos-delay="0" data-aos-duration="800">
+                    <div class="portfolio-img-wrapper">
+                        <img src="assets/birthday.png" alt="موقع عيد ميلاد" loading="lazy">
+                    </div>
+                    <div class="portfolio-info">
+                        <span class="portfolio-label">عيد ميلاد</span>
+                        <br><br>
+                        <a href="https://lovestorysites.github.io/" target="_blank" rel="noopener noreferrer" class="btn-portfolio">شوف الموقع</a>
+                    </div>
+                </div>
+
+                <!-- Card 2 — Crime Love -->
+                <div class="portfolio-card" data-aos="zoom-in-up" data-aos-delay="150" data-aos-duration="800">
+                    <div class="portfolio-img-wrapper">
+                        <img src="assets/crime.png" alt="قضية حب" loading="lazy">
+                    </div>
+                    <div class="portfolio-info">
+                        <span class="portfolio-label">قضية حب 😄</span>
+                        <br><br>
+                        <a href="https://lovestorysites.github.io/crime/" target="_blank" rel="noopener noreferrer" class="btn-portfolio">شوف الموقع</a>
+                    </div>
+                </div>
+
+                <!-- Card 3 — Valentine -->
+                <div class="portfolio-card" data-aos="zoom-in-up" data-aos-delay="300" data-aos-duration="800">
+                    <div class="portfolio-img-wrapper">
+                        <img src="assets/valentine.png" alt="فالنتاين" loading="lazy">
+                    </div>
+                    <div class="portfolio-info">
+                        <span class="portfolio-label">فالنتاين</span>
+                        <br><br>
+                        <a href="https://lovestorysites.github.io/valentine-site/" target="_blank" rel="noopener noreferrer" class="btn-portfolio">شوف الموقع</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== STEPS ==================== -->
+    <section id="steps">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">كيفاش تطلب ؟</h2>
+
+            <div class="steps-container" id="stepsContainer">
+                <div class="steps-line">
+                    <div class="steps-line-fill" id="stepsLineFill"></div>
+                </div>
+
+                <div class="step-item" data-aos="fade-left" data-aos-delay="0" data-aos-duration="700">
+                    <div class="step-number">١</div>
+                    <h4>املأ الطلب</h4>
+                    <p>عمر المعلومات تاعك مباشرة من هنا</p>
+                </div>
+                <div class="step-item" data-aos="fade-left" data-aos-delay="200" data-aos-duration="700">
+                    <div class="step-number">٢</div>
+                    <h4>خبرنا بالتفاصيل</h4>
+                    <p>الاسم، المناسبة، الصور، اللي تحب يتكتب — وانا نتكفل بالباقي</p>
+                </div>
+                <div class="step-item" data-aos="fade-left" data-aos-delay="400" data-aos-duration="700">
+                    <div class="step-number">٣</div>
+                    <h4>نصنعولك الموقع</h4>
+                    <p>نخدمو الموقع تاعك ونوريك إياه في فيديو قبل ما ينشر</p>
+                </div>
+                <div class="step-item" data-aos="fade-left" data-aos-delay="600" data-aos-duration="700">
+                    <div class="step-number">٤</div>
+                    <h4>ادفع بـ CCP</h4>
+                    <p>بعد ما تشوف الموقع وتعجبك — تدفع عن طريق CCP</p>
+                </div>
+                <div class="step-item" data-aos="fade-left" data-aos-delay="800" data-aos-duration="700">
+                    <div class="step-number">٥</div>
+                    <h4>استلم اللينك</h4>
+                    <p>بعد التأكيد نبعثولك اللينك مباشرة — جاهز تبعثو 🤍</p>
+                </div>
+            </div>
+
+            <div class="steps-cta" data-aos="fade-up" data-aos-delay="1000">
+                <button id="openModalBtn" class="btn-gold-glow" style="position: relative; z-index: 100;" onclick="if(window.openOrderModal) window.openOrderModal();">
+                    اطلب دركا 🤍
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer id="footer">
+        <div class="container">
+            <div class="footer-brand">LoveStorySites ♛</div>
+            <p class="footer-tagline">صنعنا بـ 🤍 للجزائريين</p>
+            <div class="social-links">
+                <!-- Instagram -->
+                <a href="https://www.instagram.com/lovestory.site?igsh=MWN1NHBoMG9qeGJvMQ==" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram" id="social-instagram">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+                    </svg>
+                </a>
+                <!-- TikTok -->
+                <a href="https://www.tiktok.com/@lovestory.sites?_r=1&_t=ZS-96wX0IFSUgX" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="TikTok" id="social-tiktok">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.34-6.34V8.89a8.28 8.28 0 004.76 1.5v-3.5a4.84 4.84 0 01-1-.2z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== ORDER MODAL ==================== -->
+    <div class="modal-overlay" id="orderModal">
+        <div class="modal-container">
+            <div class="modal-header">
+                <button class="modal-back" id="modalBack">➔</button>
+                <div style="font-family: var(--font-title); color: var(--gold); font-size: 1.2rem;">طلب جديد</div>
+                <button class="modal-close" id="modalClose">✕</button>
+            </div>
+            
+            <div class="progress-bar-container">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+
+            <div class="modal-body">
+                <form id="orderForm">
+                    <!-- Step 1 -->
+                    <div class="form-step active" data-step="1">
+                        <h3 class="step-title">الاسم الكامل</h3>
+                        <div class="input-row">
+                            <div class="input-group">
+                                <label for="firstName">الاسم</label>
+                                <input type="text" id="firstName" name="first_name" required>
+                            </div>
+                            <div class="input-group">
+                                <label for="lastName">اللقب</label>
+                                <input type="text" id="lastName" name="last_name" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="form-step" data-step="2">
+                        <h3 class="step-title">التواصل</h3>
+                        <span class="note" style="color: var(--gold); font-size: 0.95rem; font-weight: 600;">إذا ما عندكش حساب في كاش منصة، خليها فارغة وصايي 🤍</span>
+                        <div class="input-group">
+                            <label for="phone">رقم الهاتف</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        <div class="input-group">
+                            <label for="instagram">Instagram</label>
+                            <input type="text" id="instagram" name="instagram" dir="ltr">
+                        </div>
+                        <div class="input-group">
+                            <label for="tiktok">TikTok</label>
+                            <input type="text" id="tiktok" name="tiktok" dir="ltr">
+                        </div>
+                        <div class="input-group">
+                            <label for="facebook">Facebook</label>
+                            <input type="text" id="facebook" name="facebook" dir="ltr">
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="form-step" data-step="3">
+                        <h3 class="step-title">المناسبة</h3>
+                        <div class="radio-cards">
+                            <label class="radio-card selected">
+                                <input type="radio" name="occasion" value="عيد ميلاد" checked>
+                                عيد ميلاد
+                            </label>
+                            <label class="radio-card">
+                                <input type="radio" name="occasion" value="ذكرى">
+                                ذكرى
+                            </label>
+                            <label class="radio-card">
+                                <input type="radio" name="occasion" value="طلب خروج">
+                                طلب خروج
+                            </label>
+                            <label class="radio-card">
+                                <input type="radio" name="occasion" value="رسالة حب">
+                                رسالة حب
+                            </label>
+                            <label class="radio-card" style="grid-column: span 2;">
+                                <input type="radio" name="occasion" value="أخرى">
+                                أخرى
+                            </label>
+                        </div>
+                        <div class="input-group">
+                            <label for="occasionDesc">حكيلنا على فكرتك — وش تحب يكون في الموقع؟</label>
+                            <textarea id="occasionDesc" name="occasion_description" rows="4" required></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="form-step" data-step="4">
+                        <h3 class="step-title">اسم الشخص اللي تهديه</h3>
+                        <span class="note">الاسم اللي رح يظهر في الموقع</span>
+                        <div class="input-group">
+                            <label for="recipientAr">بالعربية</label>
+                            <input type="text" id="recipientAr" name="recipient_name_ar">
+                        </div>
+                        <div class="input-group">
+                            <label for="recipientFr">بالفرنسية / اللاتينية</label>
+                            <input type="text" id="recipientFr" name="recipient_name_fr" dir="ltr">
+                        </div>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div class="form-step" data-step="5">
+                        <h3 class="step-title">ستايل الموقع</h3>
+                        <div class="input-group">
+                            <label for="styleDesc">عندك فكرة على التصميم أو المحتوى؟</label>
+                            <textarea id="styleDesc" name="style_description" rows="5"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Step 6 -->
+                    <div class="form-step" data-step="6">
+                        <h3 class="step-title">الألوان المفضلة</h3>
+                        <div class="input-group">
+                            <input type="text" id="colorsInput" name="colors" placeholder="مثال: أسود وذهبي...">
+                            <div class="tag-presets">
+                                <span class="tag">وردي</span>
+                                <span class="tag">أسود وذهبي</span>
+                                <span class="tag">أزرق</span>
+                                <span class="tag">أحمر</span>
+                                <span class="tag">أبيض</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 7 -->
+                    <div class="form-step" data-step="7">
+                        <h3 class="step-title">صور</h3>
+                        <div class="big-btn-group">
+                            <button type="button" class="big-btn" id="btnPhotosYes">نعم عندي صور 📸</button>
+                            <button type="button" class="big-btn" id="btnPhotosNo">لا، بلا صور</button>
+                        </div>
+                        <input type="hidden" id="hasPhotos" name="has_photos" value="">
+                    </div>
+
+                    <!-- Step 8 -->
+                    <div class="form-step" data-step="8">
+                        <h3 class="step-title">الرسالة الخاصة</h3>
+                        <div class="input-group">
+                            <label for="specialMessage">اكتب الرسالة اللي حابها تظهر في الموقع 🤍</label>
+                            <textarea id="specialMessage" name="special_message" rows="6" required></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Step 9 -->
+                    <div class="form-step" data-step="9">
+                        <h3 class="step-title">كود برومو</h3>
+                        <div class="input-group">
+                            <label for="promoCode">عندك كود برومو؟ (اختياري)</label>
+                            <input type="text" id="promoCode" name="promo_code" dir="ltr">
+                        </div>
+                    </div>
+
+                    <!-- Step 10 -->
+                    <div class="form-step" data-step="10">
+                        <h3 class="step-title">تأكيد الطلب</h3>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="terms" name="terms_accepted" required>
+                            <label for="terms">قرأت ووافقت على الشروط والأحكام</label>
+                        </div>
+                    </div>
+                    
+                    <!-- Success View (Step 11 internal) -->
+                    <div class="form-step" id="successView">
+                        <div class="success-message">
+                            <h3>✅ تم استقبال طلبك!</h3>
+                            <p>رح نتواصل معك قريباً 🤍</p>
+                        </div>
+                    </div>
+                </form>
+                
+                <div id="toast" class="toast">✨ رح نتواصل معك باش تبعتلنا الصور بعد تأكيد الطلب</div>
+            </div>
+
+            <div class="modal-footer" id="modalFooter">
+                <button type="button" class="btn-skip" id="btnSkip" style="display: none;">تخطي</button>
+                <button type="button" class="btn-next" id="btnNext">التالي</button>
+                <button type="button" class="btn-submit" id="btnSubmit" style="display: none;">أكد الطلب 🤍</button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- AOS Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        // ========== PAGE LOADER ==========
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('pageLoader').classList.add('hidden');
+            }, 800);
+        });
+
+        // ========== AOS INIT ==========
+        AOS.init({
+            once: true,
+            offset: 80,
+            easing: 'ease-out-cubic'
+        });
+
+        // ========== GOLD PARTICLE BACKGROUND ==========
+        (function() {
+            const canvas = document.getElementById('particles-canvas');
+            const ctx = canvas.getContext('2d');
+            let particles = [];
+            let animationId;
+
+            function resize() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+            resize();
+            window.addEventListener('resize', resize);
+
+            class Particle {
+                constructor() {
+                    this.reset();
+                }
+
+                reset() {
+                    this.x = Math.random() * canvas.width;
+                    this.y = Math.random() * canvas.height;
+                    this.size = Math.random() * 2 + 0.5;
+                    this.speedX = (Math.random() - 0.5) * 0.3;
+                    this.speedY = (Math.random() - 0.5) * 0.3;
+                    this.opacity = Math.random() * 0.5 + 0.1;
+                    this.fadeDir = Math.random() > 0.5 ? 1 : -1;
+                    this.fadeSpeed = Math.random() * 0.005 + 0.002;
+                    // Gold color variations
+                    const goldVariation = Math.random();
+                    if (goldVariation < 0.6) {
+                        this.color = '201, 168, 76'; // main gold
+                    } else if (goldVariation < 0.85) {
+                        this.color = '224, 198, 114'; // lighter gold
+                    } else {
+                        this.color = '255, 255, 255'; // occasional white star
+                    }
+                }
+
+                update() {
+                    this.x += this.speedX;
+                    this.y += this.speedY;
+                    this.opacity += this.fadeDir * this.fadeSpeed;
+
+                    if (this.opacity >= 0.6) {
+                        this.fadeDir = -1;
+                    } else if (this.opacity <= 0.05) {
+                        this.fadeDir = 1;
+                    }
+
+                    // Wrap around
+                    if (this.x < -10) this.x = canvas.width + 10;
+                    if (this.x > canvas.width + 10) this.x = -10;
+                    if (this.y < -10) this.y = canvas.height + 10;
+                    if (this.y > canvas.height + 10) this.y = -10;
+                }
+
+                draw() {
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(${this.color}, ${this.opacity})`;
+                    ctx.fill();
+
+                    // Glow effect for larger particles
+                    if (this.size > 1.3) {
+                        ctx.beginPath();
+                        ctx.arc(this.x, this.y, this.size * 2.5, 0, Math.PI * 2);
+                        ctx.fillStyle = `rgba(${this.color}, ${this.opacity * 0.15})`;
+                        ctx.fill();
+                    }
+                }
+            }
+
+            // Create particles — density based on screen
+            const count = Math.min(Math.floor((canvas.width * canvas.height) / 12000), 120);
+            for (let i = 0; i < count; i++) {
+                particles.push(new Particle());
+            }
+
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                particles.forEach(p => {
+                    p.update();
+                    p.draw();
+                });
+                animationId = requestAnimationFrame(animate);
+            }
+            animate();
+        })();
+
+        // ========== TYPEWRITER EFFECT ==========
+        (function() {
+            const text = 'وش أحلى هدية ممكن تقدمها لشخص تحبو ؟';
+            const el = document.getElementById('typewriter-text');
+            let index = 0;
+            const speed = 70;
+
+            function type() {
+                if (index < text.length) {
+                    el.textContent += text.charAt(index);
+                    index++;
+                    setTimeout(type, speed);
+                }
+            }
+
+            // Start after hero title fades in
+            setTimeout(type, 1500);
+        })();
+
+        // ========== STEPS LINE ANIMATION ==========
+        (function() {
+            const lineFill = document.getElementById('stepsLineFill');
+            const stepsSection = document.getElementById('stepsContainer');
+            let animated = false;
+
+            function checkScroll() {
+                if (animated) return;
+                const rect = stepsSection.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+
+                if (rect.top < windowHeight * 0.75) {
+                    animated = true;
+                    lineFill.classList.add('animate');
+                }
+            }
+
+            window.addEventListener('scroll', checkScroll);
+            checkScroll();
+        })();
+
+        // ========== SMOOTH SCROLL FOR ANCHOR LINKS ==========
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // ========== ORDER MODAL LOGIC ==========
+        (function() {
+            const modal = document.getElementById('orderModal');
+            const openBtn = document.getElementById('openModalBtn');
+            const closeBtn = document.getElementById('modalClose');
+            const backBtn = document.getElementById('modalBack');
+            const nextBtn = document.getElementById('btnNext');
+            const skipBtn = document.getElementById('btnSkip');
+            const submitBtn = document.getElementById('btnSubmit');
+            const form = document.getElementById('orderForm');
+            const progressBar = document.getElementById('progressBar');
+            const modalFooter = document.getElementById('modalFooter');
+            
+            const steps = document.querySelectorAll('.form-step[data-step]');
+            let currentStepIndex = 0;
+            const totalSteps = steps.length;
+            
+            // Config for steps that can be skipped
+            const skippableSteps = [1, 4, 8]; // 0-indexed: Step 2, Step 5, Step 9
+            // Config for steps with custom skip text
+            const skipTexts = {
+                4: 'ما عنديش فكرة دركا ←',
+                8: 'تخطي'
+            };
+
+            // Global function to open modal (safeguard)
+            window.openOrderModal = function() {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Prevent background scrolling
+                updateUI();
+            };
+
+            // Open Modal
+            if (openBtn) {
+                openBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    window.openOrderModal();
+                });
+            }
+
+            // Close Modal
+            const closeModal = () => {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            };
+            closeBtn.addEventListener('click', closeModal);
+            modal.addEventListener('click', (e) => {
+                if(e.target === modal) closeModal();
+            });
+
+            // Navigation functions
+            const goToStep = (index) => {
+                // Basic validation for required fields before moving forward
+                if(index > currentStepIndex) {
+                    const currentStepEl = steps[currentStepIndex];
+                    const requiredInputs = currentStepEl.querySelectorAll('[required]');
+                    let isValid = true;
+                    requiredInputs.forEach(input => {
+                        if(!input.value.trim() && (input.type !== 'checkbox' || !input.checked)) {
+                            input.reportValidity();
+                            isValid = false;
+                        }
+                    });
+                    if(!isValid) return;
+                }
+
+                steps[currentStepIndex].classList.remove('active');
+                if(index < currentStepIndex) {
+                    steps[currentStepIndex].classList.add('prev');
+                } else {
+                    steps[currentStepIndex].classList.remove('prev');
+                }
+                
+                currentStepIndex = index;
+                
+                steps.forEach((step, i) => {
+                    if(i < currentStepIndex) step.classList.add('prev');
+                    else if(i > currentStepIndex) step.classList.remove('prev');
+                });
+                
+                steps[currentStepIndex].classList.add('active');
+                steps[currentStepIndex].classList.remove('prev');
+                
+                updateUI();
+            };
+
+            nextBtn.addEventListener('click', () => {
+                if(currentStepIndex < totalSteps - 1) goToStep(currentStepIndex + 1);
+            });
+            
+            skipBtn.addEventListener('click', () => {
+                if(currentStepIndex < totalSteps - 1) {
+                    // Bypass validation on skip
+                    steps[currentStepIndex].classList.remove('active');
+                    currentStepIndex++;
+                    steps[currentStepIndex].classList.add('active');
+                    updateUI();
+                }
+            });
+
+            backBtn.addEventListener('click', () => {
+                if(currentStepIndex > 0) goToStep(currentStepIndex - 1);
+            });
+
+            // Update UI (buttons, progress, back arrow)
+            const updateUI = () => {
+                // Progress
+                const progress = ((currentStepIndex + 1) / totalSteps) * 100;
+                progressBar.style.width = `${progress}%`;
+
+                // Back button visibility
+                if (currentStepIndex === 0) {
+                    backBtn.classList.remove('active');
+                } else {
+                    backBtn.classList.add('active');
+                }
+
+                // Next / Submit buttons visibility
+                if (currentStepIndex === totalSteps - 1) {
+                    nextBtn.style.display = 'none';
+                    submitBtn.style.display = 'block';
+                } else {
+                    nextBtn.style.display = 'block';
+                    submitBtn.style.display = 'none';
+                    
+                    // Specific logic for Step 7 (Photos)
+                    if(currentStepIndex === 6) { // 0-indexed Step 7
+                         nextBtn.style.display = 'none'; // Hide next btn, use custom buttons
+                    }
+                }
+                
+                // Skip button logic
+                if(skippableSteps.includes(currentStepIndex)) {
+                    skipBtn.style.display = 'block';
+                    skipBtn.textContent = skipTexts[currentStepIndex] || 'تخطي';
+                } else {
+                    skipBtn.style.display = 'none';
+                }
+            };
+
+            // Custom logic for Radio Cards (Step 3)
+            const radioCards = document.querySelectorAll('.radio-card');
+            radioCards.forEach(card => {
+                card.addEventListener('click', () => {
+                    radioCards.forEach(c => c.classList.remove('selected'));
+                    card.classList.add('selected');
+                    card.querySelector('input').checked = true;
+                });
+            });
+
+            // Custom logic for Color Tags (Step 6)
+            const colorInput = document.getElementById('colorsInput');
+            const tags = document.querySelectorAll('.tag');
+            tags.forEach(tag => {
+                tag.addEventListener('click', () => {
+                    const currentVal = colorInput.value.trim();
+                    const newColor = tag.textContent;
+                    if(currentVal) {
+                        colorInput.value = currentVal + '، ' + newColor;
+                    } else {
+                        colorInput.value = newColor;
+                    }
+                });
+            });
+
+            // Custom logic for Step 7 (Photos)
+            const btnPhotosYes = document.getElementById('btnPhotosYes');
+            const btnPhotosNo = document.getElementById('btnPhotosNo');
+            const hasPhotosInput = document.getElementById('hasPhotos');
+            const toast = document.getElementById('toast');
+
+            btnPhotosYes.addEventListener('click', () => {
+                hasPhotosInput.value = 'yes';
+                toast.classList.add('show');
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                    goToStep(currentStepIndex + 1);
+                }, 2000);
+            });
+
+            btnPhotosNo.addEventListener('click', () => {
+                hasPhotosInput.value = 'no';
+                goToStep(currentStepIndex + 1);
+            });
+
+            // Form Submission
+            submitBtn.addEventListener('click', async () => {
+                if(!form.checkValidity()) {
+                    form.reportValidity();
+                    return;
+                }
+                
+                const formData = new FormData(form);
+                const data = {
+                    first_name: formData.get('first_name') || '',
+                    last_name: formData.get('last_name') || '',
+                    phone: formData.get('phone') || '',
+                    instagram: formData.get('instagram') || '',
+                    tiktok: formData.get('tiktok') || '',
+                    facebook: formData.get('facebook') || '',
+                    occasion: formData.get('occasion') || '',
+                    occasion_description: formData.get('occasion_description') || '',
+                    recipient_name_ar: formData.get('recipient_name_ar') || '',
+                    recipient_name_fr: formData.get('recipient_name_fr') || '',
+                    style_description: formData.get('style_description') || '',
+                    colors: formData.get('colors') || '',
+                    has_photos: formData.get('has_photos') || 'no',
+                    special_message: formData.get('special_message') || '',
+                    promo_code: formData.get('promo_code') || '',
+                    terms_accepted: formData.get('terms_accepted') === 'on'
+                };
+
+                // Show loading state on submit button
+                const originalText = submitBtn.textContent;
+                submitBtn.textContent = 'جاري الإرسال...';
+                submitBtn.disabled = true;
+
+                try {
+                    await fetch('https://script.google.com/macros/s/AKfycbyKWQsjhjzB_ZxWClABnVozJUz6tpoKAutrFszq2W4Idkr1RLDFzfRcR6Y4Z2sCd8lf/exec', {
+                        method: 'POST',
+                        mode: 'no-cors', // Needed for Google Apps Script basic setup without complex CORS headers
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(data)
+                    });
+                    
+                    // Show success screen
+                    steps[currentStepIndex].classList.remove('active');
+                    document.getElementById('successView').classList.add('active');
+                    modalFooter.style.display = 'none';
+                    progressBar.style.width = '100%';
+                    backBtn.classList.remove('active');
+                    
+                } catch (error) {
+                    console.error('Error submitting form:', error);
+                    alert('حدث خطأ أثناء إرسال الطلب. يرجى المحاولة مرة أخرى.');
+                } finally {
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                }
+            });
+        })();
+    </script>
+
+</body>
+</html>
